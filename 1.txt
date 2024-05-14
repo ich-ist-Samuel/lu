@@ -1,0 +1,294 @@
+确认设备操作界面WiFi/bt关闭
+wl ver   检测固件版本信息中是否有wltest 字样
+指令可能修改的地方参考如下：
+wl 2g_rate -r 11 -b 20  --------此处11表示速率11M
+wl channel 1//wl chanspec 1/20  ---信道修改1表示1信道
+wl txpwr1 -o -d 18-------功率18dBm
+
+
+
+2.4G 11b 11M
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band b
+wl 2g_rate -r 11 -b 20
+wl channel 1
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 18
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+2.4G 11g 54M
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band b
+wl 2g_rate -r 54 -b 20
+wl channel 1
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 16
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+2.4G 11n HT20 MCS7
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band b
+wl 2g_rate -h 7 -b 20
+wl chanspec 1/20
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 15
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+
+
+5G 11a 54M
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl 5g_rate -r 54 -b 20
+wl channel 36
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 15
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+5G 11n HT20 MCS7
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl 5g_rate -h 7 -b 20
+wl chanspec 36/20
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 15
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+5G 11n HT40 MCS7
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl mimo_bw_cap 1
+wl mimo_txbw 4
+wl txchain 1
+wl rxchain 1
+wl txcore -s 1 -c 1 
+wl 5g_rate -h 7 -b 40
+wl chanspec -c 38 -b 5 -w 40 -s 0
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 13
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+5G 11ac VHT20 MCS8
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl 5g_rate -v 8 -s 1 -b 20
+wl chanspec 36/20
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 14
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+5G 11ac VHT40 MCS9
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl txchain 1
+wl txcore -s 0 -c 1
+wl 5g_rate -v 9 -b 40
+wl chanspec -c 38 -b 5 -w 40 -s 0
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 13
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+5G 11ac VHT80 MCS9
+wl pkteng_stop tx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl mimo_txbw -1
+wl txchain 1
+wl txcore -s 1 -c 1
+wl 5g_rate -v 9 -b 80
+wl chanspec -c 42 -b 5 -w 80 -s 0
+wl scansuppress 1
+wl phy_txpwrctrl 1
+wl txpwr1 -1
+wl txpwr1 -o -d 12
+wl up
+wl PM 0
+wl phy_forcecal 1
+wl pkteng_start 00:11:22:33:44:55 tx 100 1024 0
+
+
+2.4G 20MHz Rx:
+wl pkteng_stop tx
+wl pkteng_stop rx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band b
+wl txchain 1
+wl rxchain 1
+wl channel 1
+wl up
+wl phy_forcecal 1
+wl scansuppress 1
+wl PM 0
+wl pkteng_start 00:11:22:33:44:55 rx
+wl reset_cnts
+wl counters
+
+
+
+每次执行wl counters后都要执行wl reset_cnts，否则收到的包会叠加
+
+
+2.4G 40MHz Rx:
+wl pkteng_stop tx
+wl pkteng_stop rx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band b
+wl txchain 1
+wl rxchain 1
+wl chanspec -c 3 -b 2 -w 40 -s 0
+wl up
+wl phy_forcecal 1
+wl scansuppress 1
+wl PM 0
+wl pkteng_start 00:11:22:33:44:55 rx
+wl reset_cnts
+wl counters
+
+
+5G 20MHz Rx:
+wl pkteng_stop tx
+wl pkteng_stop rx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl channel 36
+wl up
+wl phy_forcecal 1
+wl scansuppress 1
+wl PM 0
+wl pkteng_start 00:11:22:33:44:55 rx
+wl reset_cnts
+wl counters
+
+
+5G 40MHz Rx:
+wl pkteng_stop tx
+wl pkteng_stop rx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl mimo_txbw 4
+wl txchain 1
+wl rxchain 1
+wl chanspec -c 38 -b 5 -w 40 -s 0
+wl up
+wl phy_forcecal 1
+wl scansuppress 1
+wl PM 0
+wl pkteng_start 00:11:22:33:44:55 rx
+wl reset_cnts
+wl counters
+
+
+5G 80MHz Rx:
+wl pkteng_stop tx
+wl pkteng_stop rx
+wl down
+wl mpc 0
+wl phy_watchdog 0
+wl country ALL
+wl band a
+wl txchain 1
+wl rxchain 1
+wl chanspec -c 42 -b 5 -w 80 -s 0
+wl up
+wl phy_forcecal 1
+wl scansuppress 1
+wl PM 0
+wl pkteng_start 00:11:22:33:44:55 rx
+wl reset_cnts 
+wl counters
+
